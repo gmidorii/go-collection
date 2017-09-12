@@ -1,14 +1,8 @@
 package integer
 
-type Collection interface {
-	Filter(func(interface{}) bool) Collection
-	Each(func(int, int))
-	Map() Collection
-}
-
 type List []int
 
-func (in List) Filter(fn func(interface{}) bool) List {
+func (in List) Filter(fn func(interface{}) bool) Collection {
 	out := make(List, 0, len(in))
 	for _, v := range in {
 		if fn(v) {
@@ -24,7 +18,7 @@ func (in List) Each(fn func(int, int)) {
 	}
 }
 
-func (in List) Map(fn func(interface{}) interface{}) List {
+func (in List) Map(fn func(interface{}) interface{}) Collection {
 	out := make(List, 0, len(in))
 	for _, v := range in {
 		out = append(out, fn(v).(int))

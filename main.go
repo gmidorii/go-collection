@@ -11,9 +11,10 @@ func main() {
 }
 
 func sampleList() {
-	list := integer.CreateList(5)
+	var list integer.Collection
+	list = integer.CreateList(5)
 	for i := 0; i < 5; i++ {
-		list = append(list, i)
+		list = append(list.(integer.List), i)
 	}
 	// Filter
 	filtered := list.Filter(func(i interface{}) bool {
