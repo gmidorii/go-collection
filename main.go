@@ -8,9 +8,11 @@ import (
 
 func main() {
 	sampleList()
+	sampleFuncList()
 }
 
 func sampleList() {
+	fmt.Println("-- sampleList --")
 	var list integer.Collection
 	list = integer.CreateList(5)
 	for i := 0; i < 5; i++ {
@@ -32,4 +34,21 @@ func sampleList() {
 		return i.(int) * 10
 	})
 	fmt.Printf("%v\n", mapped)
+}
+
+func sampleFuncList() {
+	fmt.Println("-- sampleFuncList --")
+	var list integer.Collection
+	list = integer.CreateList(5)
+	for i := 0; i < 5; i++ {
+		list = append(list.(integer.List), i)
+	}
+	// Filter
+	fFn := integer.FilterFunc{Comparison: 2}
+	filtered := list.Filter(fFn.Larger)
+	fmt.Printf("%v\n", filtered)
+
+	// Each
+	eFn := integer.EachFunc{PrintFmt: "index: %d, value: %d\n"}
+	list.Each(eFn.Println)
 }
