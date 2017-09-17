@@ -30,8 +30,8 @@ func sampleList() {
 		fmt.Printf("index: %d, value: %d\n", i, v)
 	})
 
-	// Map
-	mapped := list.Map(func(i interface{}) interface{} {
+	// Collect
+	mapped := list.Collect(func(i interface{}) interface{} {
 		return i.(int) * 10
 	})
 	fmt.Printf("%v\n", mapped)

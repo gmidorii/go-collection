@@ -20,7 +20,7 @@ func (in List) Each(fn func(int, int)) {
 	}
 }
 
-func (in List) Map(fn func(interface{}) interface{}) collection.Collection {
+func (in List) Collect(fn func(interface{}) interface{}) collection.Collection {
 	out := make(List, 0, len(in))
 	for _, v := range in {
 		out = append(out, fn(v).(int))

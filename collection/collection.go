@@ -3,5 +3,5 @@ package collection
 type Collection interface {
 	Filter(func(interface{}) bool) Collection
 	Each(func(int, int))
-	Map(func(interface{}) interface{}) Collection
+	Collect(func(interface{}) interface{}) Collection
 }
