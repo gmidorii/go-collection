@@ -1,4 +1,4 @@
-package integer
+package collection
 
 type Collection interface {
 	Filter(func(interface{}) bool) Collection

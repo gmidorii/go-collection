@@ -3,7 +3,8 @@ package main
 import (
 	"fmt"
 
-	"github.com/midorigreen/go-collection/integer"
+	"github.com/midorigreen/go-collection/collection"
+	"github.com/midorigreen/go-collection/collection/integer"
 )
 
 func main() {
@@ -13,7 +14,7 @@ func main() {
 
 func sampleList() {
 	fmt.Println("-- sampleList --")
-	var list integer.Collection
+	var list collection.Collection
 	list = integer.CreateList(5)
 	for i := 0; i < 5; i++ {
 		list = append(list.(integer.List), i)
@@ -38,7 +39,7 @@ func sampleList() {
 
 func sampleFuncList() {
 	fmt.Println("-- sampleFuncList --")
-	var list integer.Collection
+	var list collection.Collection
 	list = integer.CreateList(5)
 	for i := 0; i < 5; i++ {
 		list = append(list.(integer.List), i)

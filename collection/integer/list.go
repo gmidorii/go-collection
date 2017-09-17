@@ -1,8 +1,10 @@
 package integer
 
+import "github.com/midorigreen/go-collection/collection"
+
 type List []int
 
-func (in List) Filter(fn func(interface{}) bool) Collection {
+func (in List) Filter(fn func(interface{}) bool) collection.Collection {
 	out := make(List, 0, len(in))
 	for _, v := range in {
 		if fn(v) {
@@ -18,7 +20,7 @@ func (in List) Each(fn func(int, int)) {
 	}
 }
 
-func (in List) Map(fn func(interface{}) interface{}) Collection {
+func (in List) Map(fn func(interface{}) interface{}) collection.Collection {
 	out := make(List, 0, len(in))
 	for _, v := range in {
 		out = append(out, fn(v).(int))
